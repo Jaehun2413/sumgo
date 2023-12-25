@@ -1,0 +1,106 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* ----------------------------------------------- */
+
+.wrap {
+    box-shadow: 0 0 5px 0.25rem #eee;
+    border: 1px solid #ccc;
+    width: 1200px;
+    max-width: 98%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+.input {
+    padding: 0.5rem 0.75rem;
+    font-size: 14px;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    display: block;
+    border-radius: 3px;
+    outline: 0;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-15 {
+    width: 15%;
+}
+
+.height-400 {
+    height: 400px;
+}
+
+ul li {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.input:focus {
+    border: 2px solid #86b7fe;
+}
+
+.btn2 {
+    padding: 8px 12px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+}
+
+.blue {
+    background-color: #2185D0;
+}
+
+.red {
+    background-color: #DB2828;
+}
+
+.noto {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*------------------------------- 별점------------------------------ */
+
+
+.rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.rating .fa-star {
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.rating .fa-star:hover {
+    color: gold;
+}
+
+ 

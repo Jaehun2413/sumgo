@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* ----------------------------------------------- */
+
+/* sub_review_view.css */
+
+/* 전체 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.wrap {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #333;
+}
+
+/* 리뷰 항목 스타일 */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+p {
+    margin: 0;
+    border: #fff;
+    border-radius: 1px;
+    width: 80%;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="reset"] {
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btn2 {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.red {
+    background-color: #ff5555;
+}
+
+.blue {
+    background-color: #4285f4;
+}

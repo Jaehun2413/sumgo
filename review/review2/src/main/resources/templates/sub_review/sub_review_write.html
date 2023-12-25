@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/sub_review_write/sub_review_write.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <title>리뷰 작성 페이지</title>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <h3>리뷰 작성 페이지</h3>
+        <form onsubmit="return frmCheck()" action="/sub_review_write" method="post" enctype="multipart/form-data">
+            <ul>
+
+                <li>
+                    <label>제목</label>
+                    <input type="text" name="boardReviewSubject" class="input width-100 noto" />
+                </li>
+
+                <li>
+                    <label>작성자</label>
+                    <input type="text" name="boardReviewWriter" class="input width-15 noto" />
+                </li>
+
+                <li>
+                    <label>별점</label>
+
+
+                    <div class="rating" id="starRating">
+                        <input type="hidden" name="boardReviewRating" id="rateInput">
+                        <i class="far fa-star" data-value="1"></i>
+                        <i class="far fa-star" data-value="2"></i>
+                        <i class="far fa-star" data-value="3"></i>
+                        <i class="far fa-star" data-value="4"></i>
+                        <i class="far fa-star" data-value="5"></i>
+                    </div>
+
+                </li>
+                <li>
+                    <label>내용</label>
+                    <textarea name="boardReviewContent" class="input width-100 height-400 noto"></textarea>
+                </li>
+                <!-- <input type="text" name="id" value="1"> -->
+<!--                <li>-->
+<!--                    <label>첨부파일</label>-->
+<!--                    <input type="file" name="file" class="input width-100" multiple/>-->
+<!--                </li>-->
+              
+                <li>
+                    <input type="submit" value="글저장" class="btn2 red">
+                    <input type="reset" value="목록" class="btn2 blue" onclick="move()">
+                </li>
+            </ul>
+        </form>
+        <script>
+            // ------------------------별 처리---------------------------------------
+            let selectedRating = 0;
+
+            function handleRating(event) {
+                const selectedStar = event.target;
+
+                if (selectedStar.classList.contains('fa-star')) {
+                    selectedRating = parseInt(selectedStar.getAttribute('data-value'));
+
+
+                    const stars = document.querySelectorAll('.fa-star');
+                    stars.forEach(star => {
+                        const value = parseInt(star.getAttribute('data-value'));
+                        star.classList.toggle('fas', value <= selectedRating);
+                        star.classList.toggle('far', value > selectedRating);
+                    });
+                }
+            }
+
+           
+
+
+            document.getElementById('starRating').addEventListener('click', handleRating);
+            $(document).ready(function () {
+               
+                $('.rating i').on('click', function () {
+                    var value = $(this).data('value');
+
+                    
+                    $('#rateInput').val(value);
+
+                    
+                    // console
+                    console.log('별점: ' + value);
+                });
+            });
+
+
+            // --------------------------------------------------------------------------------------------
+            window.onload = function () {
+                document.querySelector("input[name=boardReviewSubject]").focus();
+            }
+
+            let subject = document.querySelector("input[name=boardReviewSubject]");
+            let writer = document.querySelector("input[name=boardReviewWriter]");
+            let content = document.querySelector("textarea[name=boardReviewContent]");
+            let rate = document.querySelector("input[name=boardReviewRating]");
+
+            function frmCheck() {
+                if (subject.value == "") {
+                    alert("게시물 제목을 입력하세요");
+                    subject.focus();
+                    return false;
+                }
+
+                if (!writer.value) {
+                    alert("게시물 작성자를 입력해 주세요");
+                    writer.focus();
+                    return false;
+                }
+                if (rate.value == "") {
+                    alert("별점을 입력하세요");
+                    rate.focus();
+                    return false;
+                }
+
+                if (content.value == "") {
+                    alert("게시물 내용을 입력하세요");
+                    content.focus();
+                    return false;
+                }
+
+
+            }
+            function move() {
+            location.href = "/sub_review_list";
+        }
+
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/sub_review_view/sub_review_view.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <title>리뷰 보기</title>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <h3>리뷰 보기</h3>
+
+        <ul th:each="review: ${list}">
+            <li>
+                <label>제목</label>
+                <p>[[${review.boardReviewSubject}]]</p>
+            </li>
+            <li>
+                <label>작성자</label>
+                <p>[[${review.boardReviewWriter}]]</p>
+            </li>
+            <li>
+                <label>별점</label>
+
+
+                <p> [[${review.boardReviewRating}]] </p>
+            </li>
+            <li>
+                <label>내용</label>
+                <p>[[${review.boardReviewContent}]]</p>
+            </li>
+
+            <li>
+<!--                =================================세션 답글 처리==============================-->
+
+                <!--                ====================================================-->
+                <a th:href="@{/sub_review_delete(boardReviewNum=${review.boardReviewNum})}" class="btn2 red">글삭제</a>
+
+                <a href="/sub_review_list" value="목록" class="btn2 blue" onclick="move(${review.boardReviewNum})" style="margin-left: 15px;">목록으로</a>
+
+            </li>
+        </ul>
+
+        <script>
+
+            function move(boardReviewNum) {
+                location.href = "/sub_review_list?boardReviewNum=" + boardReviewNum;
+            }
+
+
+
+            // --------------------------------------------------------------------------------------------
+
+
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>
